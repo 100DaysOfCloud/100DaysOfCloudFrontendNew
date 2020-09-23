@@ -2,3 +2,4 @@
 /public/application.js
 .DS_Store
 node_modules
+/src/config.js

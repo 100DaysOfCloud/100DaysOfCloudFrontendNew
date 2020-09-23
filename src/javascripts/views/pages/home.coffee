@@ -1,6 +1,7 @@
 import * as m from 'mithril'
 import { View } from 'dilithium'
 import Api from 'services/api'
+import Auth from 'services/auth'
 import Header from 'components/header'
 
 export default class PagesHome extends View
@@ -9,6 +10,7 @@ export default class PagesHome extends View
     'pages/home': 'success'
   reindex:=>
     #Api.pages.home()
+    Auth.current_session()
   render:=>
     m 'main',
       m Header

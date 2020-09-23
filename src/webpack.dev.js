@@ -26,7 +26,7 @@ const css = {
 }
 
 const namespace_application = {
-  mode: 'production',
+  mode: 'development',
   target: 'web',
   entry: {
     'application.js' : path.resolve(__dirname, 'javascripts/application.coffee'),
@@ -46,13 +46,12 @@ const namespace_application = {
       services   : path.resolve(__dirname, 'javascripts/services/'),
       lib        : path.resolve(__dirname, 'javascripts/lib/'),
       dilithium  : path.resolve(__dirname, 'javascripts/lib/dilithium/dilithium'),
+      config     : path.resolve(__dirname, 'config.js')
     }
   },
   node: { __dirname: false },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'application.css'
-    })
+    new MiniCssExtractPlugin({filename: 'application.css'})
   ],
   module : { rules: [coffee,css] }
 }
