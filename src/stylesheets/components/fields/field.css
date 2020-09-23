@@ -1,0 +1,16 @@
+.field {
+  padding-bottom: 12px;
+}
+
+.field label{
+  display: block;
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+
+.text_field input {
+  padding: 8px;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}

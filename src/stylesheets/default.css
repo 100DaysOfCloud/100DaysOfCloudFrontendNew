@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+article {
+  width: 800px;
+  padding: 24px 0px;
+  margin: 0px auto;
+}
+
+.submit input[type='submit']{
+  cursor: pointer;
+  padding: 12px 32px;
+  outline: none;
+  border: none;
+  background: rgb(230,230,230);
+  color: rgb(100,100,100);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit input[type='submit']:hover {
+  background: rgb(220,220,220);
+  color: rgb(0,0,0);
+}
