@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 100DaysofCloud API Gateway
+Parameters:
+  JourneyersTable:
+    Description: The DynamoDB Journeyers Table
+    Type: String
+  AppName:
+    Description: The name of the project. It will be used to name and tag resources.
+    Type: String
+
+Resources:
+  PagesJourneyers:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: api_gateway/pages_journeyers
+      Handler: index.handler
+      Runtime: ruby.2.7
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref JourneyersTable
+      Environment:
+          Variables:
+            databaseName : !Ref JourneyersTable
+      Events:
+        GetUserById:
+          Type: Api
+          Properties:
+            Path: /pages/journeyers
+            Method: get
+Outputs:
+  APIEndpoint:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Export:
+      Name: !Sub ${AppName}-PagesJourneyers
