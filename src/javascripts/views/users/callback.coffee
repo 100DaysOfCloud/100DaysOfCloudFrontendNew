@@ -5,8 +5,10 @@ import Auth from 'services/auth'
 export default class UsersCallback extends View
   oninit:(vnode)=>
     super(vnode)
-    @code = m.route.param('code')
-    console.log 'code' 
-    Auth.authorize(@code)
+    @token = m.route.param('token')
+    console.log 'code'
+    #Auth.authorize(@token)
   render:=>
-    m 'div', @code
+    m 'div',
+      m 'span', 'token:'
+      m 'span', @token

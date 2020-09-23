@@ -9,10 +9,13 @@ export default class PagesHome extends View
   events:
     'pages/home': 'success'
   reindex:=>
-    #Api.pages.home()
-    Auth.current_session()
+    Auth.current_user (user)=>
+      console.log 'user', user
+      @user = user
+      m.redraw(true)
   render:=>
     m 'main',
-      m Header
-      m 'article'
+      m Header, user: @user
+      m 'article',
+        'home'
 
